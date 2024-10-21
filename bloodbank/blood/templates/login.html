@@ -20,6 +20,7 @@
                 <p style="color:red;">{{ error }}</p> <!-- Display error message -->
             {% endif %}
             <p class="signup-link">Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p> <!-- Link to signup page -->
+            <a href="{% url 'admin:index' %}" class="admin-login-btn">Log In as Admin</a>
         </div>
 
         <style>
@@ -80,6 +81,21 @@
 
             .login-btn:hover {
                 background-color: #45a049; /* Darker green on hover */
+            }
+
+            .admin-login-btn {
+                display: block; /* Make it a block element for full width */
+                background-color: #007bff; /* Blue button color */
+                color: white;
+                padding: 10px;
+                text-align: center; /* Center align text */
+                border-radius: 4px; /* Rounded corners */
+                text-decoration: none; /* Remove underline from links */
+                margin-top: 15px; /* Space above the button */
+            }
+
+            .admin-login-btn:hover {
+                background-color: #0056b3; /* Darker blue on hover */
             }
 
             .signup-link {
