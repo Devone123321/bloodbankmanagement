@@ -21,5 +21,5 @@ from blood import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blood/', include('blood.urls')),
-    path('', views.home, name='home'),
+    path('', views.login_view, name='login'),
 ]
