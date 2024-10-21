@@ -1,16 +1,17 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blood App - Log In</title>
+    {% load static %}
     <link rel="stylesheet" href="Login.css"> <!-- Link to external CSS -->
 </head>
 <body>
     <div id="main">
         <div class="login-container">
             <h2>Login</h2>
+            <img src="{% static 'images/Blood_Donation_Logo-removebg-preview.png' %}" alt="logo" class="logo-image"> <!-- Added class for styling -->
             <form class="login-form" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }} <!-- Render the form fields -->
@@ -43,6 +44,15 @@
                 text-align: center;
                 color: #333; /* Dark gray color */
                 margin-bottom: 20px;
+            }
+
+            .logo-image {
+                display: block; /* Center the image */
+                margin: 0 auto 20px; /* Center horizontally and add space below */
+                max-width: 100%; /* Responsive image */
+                height:auto; /* Maintain aspect ratio */
+                padding-top: -100%;
+                
             }
 
             .login-form {
