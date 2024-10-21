@@ -13,7 +13,61 @@
             <h2>Sign Up</h2>
             <form class="login-form" method="POST">
                 {% csrf_token %}
-                {{ form.as_p }} <!-- Render the form fields -->
+
+                <!-- First Name Field -->
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" required class="form-control" />
+                    {% if form.first_name.errors %}
+                        <div class="error">{{ form.first_name.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Last Name Field -->
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" name="last_name" required class="form-control" />
+                    {% if form.last_name.errors %}
+                        <div class="error">{{ form.last_name.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required class="form-control" />
+                    {% if form.email.errors %}
+                        <div class="error">{{ form.email.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" required class="form-control" />
+                    {% if form.username.errors %}
+                        <div class="error">{{ form.username.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" name="password1" required class="form-control" />
+                    {% if form.password1.errors %}
+                        <div class="error">{{ form.password1.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" name="password2" required class="form-control" />
+                    {% if form.password2.errors %}
+                        <div class="error">{{ form.password2.errors }}</div>
+                    {% endif %}
+                </div>
+
                 <button type="submit" class="login-btn">Sign Up</button>
             </form>
             <p class="signup-link">Already have an account? <a href="{% url 'login' %}">Log in</a></p> <!-- Link to login page -->
@@ -68,7 +122,7 @@
             }
 
             .login-btn {
-                background-color: #e74c3c; /* Green button */
+                background-color: #e74c3c; /* Red button */
                 color: white;
                 padding: 10px;
                 border: none;
@@ -78,7 +132,7 @@
             }
 
             .login-btn:hover {
-                background-color: #b81d24; /* Darker green on hover */
+                background-color: #b81d24; /* Darker red on hover */
             }
 
             .signup-link {
@@ -87,16 +141,20 @@
                 color: #666; /* Medium gray color */
             }
 
-            .signup-link a,
-            .home-link a {
+            .signup-link a {
                 color: #4CAF50; /* Green link color */
                 text-decoration: none; /* Remove underline from links */
             }
 
-            .signup-link a:hover,
-            .home-link a:hover {
+            .signup-link a:hover {
                 text-decoration: underline; /* Underline on hover */
             }
+            
+            .error {
+              color: red; /* Style for error messages */
+              font-size: small;
+              margin-top: 5px;
+          }
         </style>
 
     </div>

@@ -2,23 +2,26 @@
 # Create your views here.
 from django.shortcuts import render, redirect
 from .models import Donor, BloodBank, Request
-from .forms import DonorForm, RequestForm
+from .forms import DonorForm, RequestForm, CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
+
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)  # Use the custom form here
         if form.is_valid():
             form.save()
+            messages.success(request, 'Account created successfully! You can now log in.')
             return redirect('login')
         else:
             return render(request, 'signup.html', {'form': form})  # Return form with errors
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()  # Initialize the custom form
     return render(request, 'signup.html', {'form': form})
+
 
 def login_view(request):
     if request.method == 'POST':
