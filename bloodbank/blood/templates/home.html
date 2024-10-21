@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blood Donation</title>
+    {% load static %}
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -121,6 +122,9 @@
             background-color: #34495e; 
             color: white;
         }
+        .banner{
+            display: block;
+        }
 
         @media (max-width: 768px) {
             .hero h1 {
@@ -168,10 +172,14 @@
 
    <main>
        <section class="hero">
-           <h1>Welcome to Blood Donation</h1>
+           <h1>Welcome to DONORCONNECT</h1>
            <p>Your contribution can save lives. Join us in making a difference!</p>
        </section>
 
+        <section class="banner">
+            <img src="{% static 'images/Dark Red Pastel Blue White Dynamic Frames Gain Volunteers Raise Funds Banner.jpg' %}" alt="Blood Donation Banner" style="width:90%; height:auto;">
+        </section>
+       
        <section id="stock" class="info-section">
            <h2>Blood Stock Information</h2>
            <p>We maintain a healthy stock of blood to ensure that every patient receives the care they need.</p>
