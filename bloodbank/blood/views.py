@@ -6,6 +6,7 @@ from .forms import DonorForm, RequestForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 def signup_view(request):
     if request.method == 'POST':
@@ -58,6 +59,7 @@ def add_request(request):
         form = RequestForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your blood request has been recorded successfully!')
             return redirect('add_request')
     else:
         form = RequestForm()

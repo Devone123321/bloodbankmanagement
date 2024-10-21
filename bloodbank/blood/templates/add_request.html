@@ -72,6 +72,13 @@
     <div id="main">
         <div class="request-container">
             <h2>Add Blood Request</h2>
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li style="color: green;">{{ message }}</li> <!-- Display success messages -->
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <form class="request-form" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }} <!-- Render the form fields -->
