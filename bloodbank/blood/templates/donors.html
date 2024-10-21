@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Donors</title>
+    {% load static %}
     <link rel="stylesheet" href="Login.css"> <!-- Link to external CSS -->
     <style>
         /* General body styling */
@@ -12,6 +13,7 @@
             background-color: #e9ecef; /* Light background for contrast */
             margin: 0;
             padding: 0;
+            position: relative; /* Position relative for absolute positioning of buttons */
         }
 
         #main {
@@ -64,7 +66,7 @@
         .home-button {
             position: absolute; /* Position relative to the nearest positioned ancestor */
             top: 20px; 
-            left: 20px;
+            left: 20px; /* Move to the top left corner */
             background-color: #4CAF50; 
             color: white;
             padding: 10px 15px;
@@ -111,7 +113,8 @@
 
         </div>
 
-        <a href="{% url 'add_donor' %}" class="home-button">Add Donor</a> <!-- Link to add donor -->
+        <!-- Move Add Donor Button -->
+        <a href="{% url 'add_donor' %}" class="home-button" style="top: 60px;">Add Donor</a> <!-- Link to add donor -->
     </div>
 </body>
 </html>
