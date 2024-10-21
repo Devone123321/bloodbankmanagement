@@ -6,15 +6,16 @@
     <title>Blood Donation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #d9f7d9; /* Light green background */
+            background-color: #68cf5b; /* Light background for contrast */
         }
 
         header {
             background-color: #4CAF50; /* Darker green for header */
             color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for header */
         }
 
         .navbar {
@@ -25,7 +26,7 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 28px; /* Slightly larger logo */
             font-weight: bold;
         }
 
@@ -53,10 +54,22 @@
         }
 
         .hero {
-            background-color: #4CAF50; /* Darker green for hero section */
+            background-image: url('https://images.unsplash.com/photo-1587802032128-5c6d4c7e8e5e'); /* Background image */
+            background-size: cover; /* Cover the entire section */
             color: white;
             text-align: center;
-            padding: 50px 20px;
+            padding: 80px 20px; /* Increased padding for better spacing */
+        }
+
+        .hero h1 {
+            font-size: 48px; /* Larger heading size */
+            margin-bottom: 20px; /* Space below heading */
+        }
+
+        .hero p {
+            font-size: 20px; /* Increased paragraph size */
+            max-width: 600px; /* Limit width of paragraph for readability */
+            margin: auto; /* Center align paragraph */
         }
 
         .info-section {
@@ -64,63 +77,132 @@
             background-color: #fff; /* White background for sections */
             margin-bottom: 20px; /* Space between sections */
             border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
         }
 
         .info-section h2 {
             color: #4CAF50; /* Section header color */
+            margin-bottom: 15px; /* Space below heading */
+        }
+
+        .info-section p {
+            font-size: 18px; /* Increased paragraph size for readability */
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 40px;
+            background-color: #e9f7ef; /* Light green background for CTA section */
+            border-radius: 8px; 
+            margin-bottom: 20px; 
+        }
+
+        .cta-section h2 {
+            color: #4CAF50; 
+        }
+
+        .cta-button {
+            background-color: #e74c3c; 
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s; 
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b; 
+            transform: scale(1.05); 
         }
 
         .footer {
             text-align: center;
-            padding: 10px 0;
-            background-color: #34495e; /* Footer color */
+            padding: 15px 0;
+            background-color: #34495e; 
             color: white;
         }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px; 
+                margin-bottom: 10px; 
+            }
+            
+            .hero p {
+                font-size: 18px; 
+                max-width: none; 
+                padding-left :10%;
+                padding-right :10%;
+                margin-top :10%;
+                margin-bottom :10%;
+                line-height :1.5em;
+
+                
+             }
+            
+             .info-section p {
+                font-size :16 px ; 
+             }
+            
+             .button {
+                padding :8 px ; 
+                font-size :14 px ; 
+                margin-left :10 px ; 
+             }
+         }
     </style>
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <div class="logo">Blood Donation</div>
-            <ul class="nav-links">
-                <li><a href="{% url 'blood_stock' %}" class="button">Stock</a></li>
-                <li><a href="{% url 'add_donor' %}" class="button">Add Donor</a></li>
-                <li><a href="{% url 'donor_list' %}" class="button">Donor List</a></li>
-                <li><a href="{% url 'add_request' %}" class="button">Request Donor</a></li>
-            </ul>
-        </nav>
-    </header>
+           <div class="logo">Blood Donation</div>
+           <ul class="nav-links">
+               <li><a href="{% url 'blood_stock' %}" class="button">Stock</a></li>
+               <li><a href="{% url 'add_donor' %}" class="button">Add Donor</a></li>
+               <li><a href="{% url 'donor_list' %}" class="button">Donor List</a></li>
+               <li><a href="{% url 'add_request' %}" class="button">Request Donor</a></li>
+           </ul>
+       </nav>
+   </header>
 
-    <main>
-        <section class="hero">
-            <h1>Welcome to Blood Donation</h1>
-            <p>Your contribution can save lives. Join us in making a difference!</p>
-        </section>
+   <main>
+       <section class="hero">
+           <h1>Welcome to Blood Donation</h1>
+           <p>Your contribution can save lives. Join us in making a difference!</p>
+       </section>
 
-        <section id="stock" class="info-section">
-            <h2>Blood Stock Information</h2>
-            <p>We maintain a healthy stock of blood to ensure that every patient receives the care they need.</p>
-        </section>
+       <section id="stock" class="info-section">
+           <h2>Blood Stock Information</h2>
+           <p>We maintain a healthy stock of blood to ensure that every patient receives the care they need.</p>
+       </section>
 
-        <section id="add-donor" class="info-section">
-            <h2>Add a Donor</h2>
-            <p>Become a hero! Add a new donor today and help us build our community of lifesavers.</p>
-        </section>
+       <section id="add-donor" class="info-section">
+           <h2>Add a Donor</h2>
+           <p>Become a hero! Add a new donor today and help us build our community of lifesavers.</p>
+       </section>
 
-        <section id="donor-list" class="info-section">
-            <h2>Donor List</h2>
-            <p>View our list of registered donors. Together, we can create a network of support.</p>
-        </section>
+       <section id="donor-list" class="info-section">
+           <h2>Donor List</h2>
+           <p>View our list of registered donors. Together, we can create a network of support.</p>
+       </section>
 
-        <section id="request-donor" class="info-section">
-            <h2>Request a Donor</h2>
-            <p>If you need blood urgently, submit a request here and we will connect you with available donors.</p>
-        </section>
-    </main>
+       <section id="request-donor" class="info-section">
+           <h2>Request a Donor</h2>
+           <p>If you need blood urgently, submit a request here and we will connect you with available donors.</p>
+       </section>
 
-    <footer class="footer">
-        &copy; 2024 Blood Donation Organization. All rights reserved.
-    </footer>
+       <!-- Call to Action Section -->
+       <section class="cta-section">
+           <h2>Ready to Make a Difference?</h2>
+           <p>Your donation can save lives. Click below to get started!</p>
+           <a href="{% url 'add_donor' %}" class="cta-button">Become a Donor</a> <!-- Call to action button -->
+       </section>
+
+   </main>
+
+   <footer class="footer">
+       &copy; 2024 Blood Donation Organization. All rights reserved.
+   </footer>
 
 </body>
 </html>

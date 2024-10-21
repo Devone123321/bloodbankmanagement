@@ -6,27 +6,43 @@
     <title>List of Donors</title>
     <link rel="stylesheet" href="Login.css"> <!-- Link to external CSS -->
     <style>
+        /* General body styling */
+        body {
+            font-family: 'Arial', sans-serif; /* Modern font */
+            background-color: #e9ecef; /* Light background for contrast */
+            margin: 0;
+            padding: 0;
+        }
+
         #main {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column; /* Stack elements vertically */
-            padding: 20px;
+            padding: 40px; /* Increased padding for better spacing */
         }
 
         .donor-container {
-            width: 300px;
-            padding: 20px;
+            width: 100%; /* Make it responsive */
+            max-width: 600px; /* Increased max width for larger panel */
+            padding: 30px; /* Increased padding for better spacing */
             background-color: #f4f4f4; /* Light gray background */
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px; /* Space between sections */
+            border-radius: 10px; /* More rounded corners */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* Deeper shadow for depth */
+            margin-bottom: 30px; /* Space between sections */
+            transition: transform 0.3s; /* Animation for hover effect */
+        }
+
+        .donor-container:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
         }
 
         h2 {
             text-align: center;
             color: #333; /* Dark gray color */
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            font-size: 32px; /* Increased font size for heading to make it more prominent */
+            text-decoration: underline; /* Underline the heading text */
         }
 
         ul {
@@ -37,6 +53,8 @@
         li {
             margin-bottom: 10px; /* Space between list items */
             color: #666; /* Medium gray color */
+            font-size: 18px; /* Decreased font size for list items to make it smaller */
+            font-family: 'Georgia', serif; /* Changed font family for list items */
         }
 
         a {
@@ -45,27 +63,31 @@
             background-color: #4CAF50; /* Green button */
             color: white;
             padding: 10px;
-            border-radius: 4px; /* Rounded corners */
+            border-radius: 5px; /* Rounded corners */
             text-decoration: none; /* Remove underline from links */
+            transition: background-color 0.3s, transform 0.3s; /* Transition effects for hover */
         }
 
         a:hover {
             background-color: #45a049; /* Darker green on hover */
+            transform: scale(1.05); /* Slightly enlarge button on hover */
         }
+
         .home-button {
             position: absolute; /* Position relative to the nearest positioned ancestor */
-            top: 20px; /* Distance from the top of the page */
-            left: 20px; /* Distance from the left of the page */
-            background-color: #4CAF50; /* Green button color */
+            top: 20px; 
+            left: 20px;
+            background-color: #4CAF50; 
             color: white;
             padding: 10px 15px;
-            text-decoration: none; /* Remove underline from links */
-            border-radius: 5px; /* Rounded corners */
-            transition: background-color 0.3s; /* Transition effect for hover */
+            text-decoration: none; 
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s; 
         }
 
         .home-button:hover {
-            background-color: #45a049; /* Darker green on hover */
+            background-color: #45a049; 
+            transform: scale(1.05); /* Slightly enlarge button on hover */
         }
     </style>
 </head>
@@ -78,6 +100,9 @@
                 {% for donor in donors %}
                     <li>{{ donor.name }} ({{ donor.blood_type }})</li>
                 {% endfor %}
+                {% if not donors %}
+                    <li>No donors available.</li> <!-- Message if no donors -->
+                {% endif %}
             </ul>
         </div>
 

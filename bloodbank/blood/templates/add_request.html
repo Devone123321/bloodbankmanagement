@@ -25,6 +25,7 @@
             text-align: center;
             color: #333; /* Dark gray color */
             margin-bottom: 20px;
+            font-size: 32px; /* Increased font size for the heading */
         }
 
         .request-form {
@@ -66,6 +67,7 @@
         button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
+        
         .home-button {
             position: absolute; /* Position relative to the nearest positioned ancestor */
             top: 20px; /* Distance from the top of the page */
@@ -88,19 +90,21 @@
     <div id="main">
         <div class="request-container">
             <h2>Add Blood Request</h2>
-            {% if messages %}
+            
+             {% if messages %}
                 <ul>
                     {% for message in messages %}
                         <li style="color: green;">{{ message }}</li> <!-- Display success messages -->
                     {% endfor %}
                 </ul>
-            {% endif %}
-            <form class="request-form" method="POST">
+             {% endif %}
+             
+             <form class="request-form" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }} <!-- Render the form fields -->
                 <button type="submit">Submit Request</button>
-            </form>
-        </div>
-    </div>
+             </form>
+         </div>
+     </div>
 </body>
 </html>
