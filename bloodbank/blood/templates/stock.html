@@ -73,7 +73,7 @@
         <tbody>
             {% for item in stock %}
                 <tr>
-                    <td>{{ item.blood_type.name }}</td> <!-- Display blood type name -->
+                    <td>{{ item.blood_type.blood_group }}</td> <!-- Display blood type name -->
                     <td>{{ item.quantity_in_units }}</td> <!-- Display quantity -->
                 </tr>
             {% empty %}

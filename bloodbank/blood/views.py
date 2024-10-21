@@ -51,7 +51,7 @@ def add_donor(request):
     return render(request, 'add_donor.html', {'form': form})
 
 def blood_stock(request):
-    stock = BloodBank.objects.all()
+    stock = BloodBank.objects.select_related('blood_type').all()
     return render(request, 'stock.html', {'stock': stock})
 
 def add_request(request):

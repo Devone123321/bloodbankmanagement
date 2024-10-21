@@ -7,7 +7,14 @@ class BloodType(models.Model):
 
     def __str__(self):
         return self.blood_group
+    
+class BloodBank(models.Model):
+    blood_type = models.ForeignKey(BloodType, on_delete=models.CASCADE)
+    quantity_in_units = models.IntegerField()
 
+    def __str__(self):
+        return f"{self.blood_type} - {self.quantity_in_units} units"
+    
 class Donor(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()

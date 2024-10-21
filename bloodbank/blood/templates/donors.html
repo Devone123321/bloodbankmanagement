@@ -30,11 +30,6 @@
             border-radius: 10px; /* More rounded corners */
             box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* Deeper shadow for depth */
             margin-bottom: 30px; /* Space between sections */
-            transition: transform 0.3s; /* Animation for hover effect */
-        }
-
-        .donor-container:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
         }
 
         h2 {
@@ -45,32 +40,25 @@
             text-decoration: underline; /* Underline the heading text */
         }
 
-        ul {
-            list-style-type: none; /* Remove bullet points */
-            padding-left: 0; /* Remove default padding */
+        table {
+            width: 100%; /* Full width of the container */
+            border-collapse: collapse; /* Merge borders */
+            margin-top: 20px; /* Space above the table */
         }
 
-        li {
-            margin-bottom: 10px; /* Space between list items */
-            color: #666; /* Medium gray color */
-            font-size: 18px; /* Decreased font size for list items to make it smaller */
-            font-family: 'Georgia', serif; /* Changed font family for list items */
+        th, td {
+            padding: 10px; /* Padding inside cells */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid #ddd; /* Light gray border below rows */
         }
 
-        a {
-            display: block; /* Make link a block element */
-            text-align: center; /* Center align link */
-            background-color: #4CAF50; /* Green button */
-            color: white;
-            padding: 10px;
-            border-radius: 5px; /* Rounded corners */
-            text-decoration: none; /* Remove underline from links */
-            transition: background-color 0.3s, transform 0.3s; /* Transition effects for hover */
+        th {
+            background-color: #4CAF50; /* Header background color */
+            color: white; /* Header text color */
         }
 
-        a:hover {
-            background-color: #45a049; /* Darker green on hover */
-            transform: scale(1.05); /* Slightly enlarge button on hover */
+        tr:hover {
+            background-color: #f1f1f1; /* Highlight row on hover */
         }
 
         .home-button {
@@ -96,17 +84,34 @@
     <div id="main">
         <div class="donor-container">
             <h2>List of Donors</h2>
-            <ul>
-                {% for donor in donors %}
-                    <li>{{ donor.name }} ({{ donor.blood_type }})</li>
-                {% endfor %}
-                {% if not donors %}
-                    <li>No donors available.</li> <!-- Message if no donors -->
-                {% endif %}
-            </ul>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Blood Type</th>
+                        <th>Last Donation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donor in donors %}
+                        <tr>
+                            <td>{{ donor.name }}</td>
+                            <td>{{ donor.blood_type }}</td>
+                            <td>{{ donor.last_donation|date:"Y-m-d" }}</td> <!-- Format date as needed -->
+                        </tr>
+                    {% endfor %}
+                    {% if not donors %}
+                        <tr>
+                            <td colspan="3" style="text-align:center;">No donors available.</td> <!-- Message if no donors -->
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+
         </div>
 
-        <a href="{% url 'add_donor' %}">Add Donor</a> <!-- Link to add donor -->
+        <a href="{% url 'add_donor' %}" class="home-button">Add Donor</a> <!-- Link to add donor -->
     </div>
 </body>
 </html>
