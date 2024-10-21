@@ -58,7 +58,7 @@ def add_request(request):
         form = RequestForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('request_list')
+            return redirect('add_request')
     else:
         form = RequestForm()
     return render(request, 'add_request.html', {'form': form})
