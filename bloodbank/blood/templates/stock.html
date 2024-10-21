@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Stock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d9f7d9; /* Light green background */
+        }
+
+        h2 {
+            text-align: center;
+            color: #c0392b; /* Dark red color for the header */
+            text-decoration: underline; /* Underline the heading */
+            font-size: 36px; /* Increased font size */
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto; /* Center the table */
+            border-collapse: collapse; /* Remove spacing between cells */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center; /* Center align text in cells */
+        }
+
+        th {
+            background-color: #c0392b; /* Dark red header color */
+            color: white; /* Header text color */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2d7d5; /* Light red for even rows */
+        }
+
+        tr:hover {
+            background-color: #f1948a; /* Lighter red on row hover */
+        }
+    </style>
+</head>
+<body>
+    <h2>Blood Bank Stock</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Blood Type</th>
+                <th>Quantity (Units)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in stock %}
+                <tr>
+                    <td>{{ item.blood_type.name }}</td> <!-- Display blood type name -->
+                    <td>{{ item.quantity_in_units }}</td> <!-- Display quantity -->
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No stock available.</td> <!-- Message when no stock is available -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{% url 'home' %}">Go to Home</a></p> <!-- Link back to home -->
+</body>
+</html>

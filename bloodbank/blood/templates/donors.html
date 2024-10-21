@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Donors</title>
+    <link rel="stylesheet" href="Login.css"> <!-- Link to external CSS -->
+    <style>
+        #main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack elements vertically */
+            padding: 20px;
+        }
+
+        .donor-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #f4f4f4; /* Light gray background */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px; /* Space between sections */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333; /* Dark gray color */
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            padding-left: 0; /* Remove default padding */
+        }
+
+        li {
+            margin-bottom: 10px; /* Space between list items */
+            color: #666; /* Medium gray color */
+        }
+
+        a {
+            display: block; /* Make link a block element */
+            text-align: center; /* Center align link */
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            padding: 10px;
+            border-radius: 4px; /* Rounded corners */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        a:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="donor-container">
+            <h2>List of Donors</h2>
+            <ul>
+                {% for donor in donors %}
+                    <li>{{ donor.name }} ({{ donor.blood_type }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="{% url 'add_donor' %}">Add Donor</a> <!-- Link to add donor -->
+    </div>
+</body>
+</html>

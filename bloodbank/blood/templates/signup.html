@@ -1,0 +1,105 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood App - Sign Up</title>
+    <link rel="stylesheet" href="Login.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <div id="main">
+        <div class="login-container">
+            <h2>Sign Up</h2>
+            <form class="login-form" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }} <!-- Render the form fields -->
+                <button type="submit" class="login-btn">Sign Up</button>
+            </form>
+            <p class="signup-link">Already have an account? <a href="{% url 'login' %}">Log in</a></p> <!-- Link to login page -->
+
+        </div>
+
+        <style>
+            #main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Full viewport height */
+            }
+
+            .login-container {
+                width: 300px;
+                padding: 20px;
+                background-color: #f4f4f4; /* Light gray background */
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            h2 {
+                text-align: center;
+                color: #333; /* Dark gray color */
+                margin-bottom: 20px;
+            }
+
+            .login-form {
+                display: flex;
+                flex-direction: column; /* Stack elements vertically */
+            }
+
+            .form-group {
+                margin-bottom: 15px; /* Space between form groups */
+            }
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #666; /* Medium gray color */
+            }
+
+            input[type="text"],
+            input[type="password"],
+            input[type="email"] {
+                width: 100%; /* Full width inputs */
+                padding: 8px;
+                border: 1px solid #ddd; /* Light border */
+                border-radius: 4px; /* Rounded corners */
+                box-sizing: border-box; /* Include padding and border in element's total width and height */
+            }
+
+            .login-btn {
+                background-color: #4CAF50; /* Green button */
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 4px; /* Rounded corners */
+                cursor: pointer; /* Pointer cursor on hover */
+                font-size: 16px;
+            }
+
+            .login-btn:hover {
+                background-color: #45a049; /* Darker green on hover */
+            }
+
+            .signup-link {
+                text-align: center; /* Center align signup link */
+                margin-top: 15px; 
+                color: #666; /* Medium gray color */
+            }
+
+            .signup-link a,
+            .home-link a {
+                color: #4CAF50; /* Green link color */
+                text-decoration: none; /* Remove underline from links */
+            }
+
+            .signup-link a:hover,
+            .home-link a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+        </style>
+
+    </div>
+    
+</body>
+</html>
