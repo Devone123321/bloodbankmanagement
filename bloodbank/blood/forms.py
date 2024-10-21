@@ -13,6 +13,7 @@ class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
         fields = ['recipient_name', 'blood_type', 'quantity_needed', 'request_date']
+        widgets = {'request_date' : forms.DateInput(attrs={'type' : 'date'}),}
 
 
 class CustomUserCreationForm(UserCreationForm):
