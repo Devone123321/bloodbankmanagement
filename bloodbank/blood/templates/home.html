@@ -14,7 +14,7 @@
         }
 
         header {
-            background-color: white ; /* Darker green for header */
+            background-color: white; /* Darker green for header */
             color: #b81d24;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for header */
         }
@@ -59,7 +59,7 @@
             background-size: cover; /* Cover the entire section */
             color: white;
             text-align: center;
-            padding: 80px 20px; /* Increased padding for better spacing */
+            padding: 100px 20px; /* Increased padding for better spacing */
         }
 
         .hero h1 {
@@ -122,38 +122,44 @@
             background-color: #34495e; 
             color: white;
         }
-        .banner{
-            display: block;
-        }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px; 
-                margin-bottom: 10px; 
-            }
-            
-            .hero p {
-                font-size: 18px; 
-                max-width: none; 
-                padding-left :10%;
-                padding-right :10%;
-                margin-top :10%;
-                margin-bottom :10%;
-                line-height :1.5em;
-
-                
-             }
-            
-             .info-section p {
-                font-size :16 px ; 
-             }
-            
-             .button {
-                padding :8 px ; 
-                font-size :14 px ; 
-                margin-left :10 px ; 
-             }
-         }
+        .banner {
+           display:flex; 
+           justify-content:center; 
+           align-items:center; 
+           margin-top:-20px ;   /* Adjust as needed to fit your design*/
+           margin-bottom :40 px ;   /* Add space below image if needed*/
+           padding :20 px ;   /* Add padding around the banner*/
+           padding-bottom: 5%;
+       }
+       
+       .banner img {
+           width :90%;   /* Adjust width as needed*/
+           height :80% ;   /* Maintain aspect ratio*/
+           border-radius :8 px ;   /* Rounded corners*/
+       }
+       
+       @media (max-width: 768px) {
+           .hero h1 {
+               font-size :36 px ; 
+               margin-bottom :10 px ; 
+           }
+           
+           .hero p {
+               font-size :18 px ; 
+               max-width :90%;   /* Adjust max width to fit mobile screens*/
+           }
+           
+           .info-section p {
+               font-size :16 px ; 
+           }
+           
+           .button {
+               padding :8 px ; 
+               font-size :14 px ; 
+               margin-left :10 px ; 
+           }
+       }
     </style>
 </head>
 <body>
@@ -176,10 +182,11 @@
            <p>Your contribution can save lives. Join us in making a difference!</p>
        </section>
 
-        <section class="banner">
-            <img src="{% static 'images/Dark Red Pastel Blue White Dynamic Frames Gain Volunteers Raise Funds Banner.jpg' %}" alt="Blood Donation Banner" style="width:90%; height:auto;">
-        </section>
-       
+       <!-- Banner Section -->
+       <section class="banner">
+           <img src="{% static 'images/Dark Red Pastel Blue White Dynamic Frames Gain Volunteers Raise Funds Banner.jpg' %}" alt="Blood Donation Banner">
+       </section>
+
        <section id="stock" class="info-section">
            <h2>Blood Stock Information</h2>
            <p>We maintain a healthy stock of blood to ensure that every patient receives the care they need.</p>
