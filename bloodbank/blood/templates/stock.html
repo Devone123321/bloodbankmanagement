@@ -42,9 +42,25 @@
         tr:hover {
             background-color: #f1948a; /* Lighter red on row hover */
         }
+        .home-button {
+            position: absolute; /* Position relative to the nearest positioned ancestor */
+            top: 20px; /* Distance from the top of the page */
+            left: 20px; /* Distance from the left of the page */
+            background-color: #4CAF50; /* Green button color */
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none; /* Remove underline from links */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Transition effect for hover */
+        }
+
+        .home-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
     </style>
 </head>
 <body>
+    <a href="{% url 'home' %}" class="home-button">Go to Home</a>
     <h2>Blood Bank Stock</h2>
     
     <table>
@@ -68,6 +84,6 @@
         </tbody>
     </table>
 
-    <p><a href="{% url 'home' %}">Go to Home</a></p> <!-- Link back to home -->
+
 </body>
 </html>
