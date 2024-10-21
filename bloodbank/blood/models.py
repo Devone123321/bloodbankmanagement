@@ -12,7 +12,8 @@ class Donor(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
     blood_type = models.ForeignKey(BloodType, on_delete=models.CASCADE)
-    last_donation = models.DateField()
+    last_donation = models.DateField(null=True, blank=True)
+    contact_number = models.CharField(max_length=15, unique=True, default='N/A')
 
     def __str__(self):
         return self.name

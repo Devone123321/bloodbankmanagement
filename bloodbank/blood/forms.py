@@ -4,7 +4,7 @@ from .models import Donor, Request
 class DonorForm(forms.ModelForm):
     class Meta:
         model = Donor
-        fields = ['name', 'age', 'blood_type', 'last_donation']
+        fields = ['name', 'age', 'blood_type', 'last_donation', 'contact_number']
 
 class RequestForm(forms.ModelForm):
     class Meta:
