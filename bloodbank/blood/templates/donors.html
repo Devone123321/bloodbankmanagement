@@ -55,7 +55,7 @@
         }
 
         th {
-            background-color: #4CAF50; /* Header background color */
+            background-color: #e74c3c; /* Header background color */
             color: white; /* Header text color */
         }
 
@@ -64,19 +64,18 @@
         }
 
         .home-button {
-            position: absolute; /* Position relative to the nearest positioned ancestor */
-            top: 20px; 
-            left: 20px; /* Move to the top left corner */
-            background-color: #4CAF50; 
+            background-color: #e74c3c; 
             color: white;
             padding: 10px 15px;
             text-decoration: none; 
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.3s; 
+            display: inline-block; /* Ensure it behaves like a button and respects margins/padding */
+            margin-top: 20px; /* Add space above the button */
         }
 
         .home-button:hover {
-            background-color: #45a049; 
+            background-color: #b81d24; 
             transform: scale(1.05); /* Slightly enlarge button on hover */
         }
     </style>
@@ -111,10 +110,9 @@
                 </tbody>
             </table>
 
+            <!-- Add Donor Button inside the donor-container -->
+            <a href="{% url 'add_donor' %}" class="home-button">Add Donor</a> 
         </div>
-
-        <!-- Move Add Donor Button -->
-        <a href="{% url 'add_donor' %}" class="home-button" style="top: 60px;">Add Donor</a> <!-- Link to add donor -->
     </div>
 </body>
 </html>
