@@ -66,9 +66,25 @@
         button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
+        .home-button {
+            position: absolute; /* Position relative to the nearest positioned ancestor */
+            top: 20px; /* Distance from the top of the page */
+            left: 20px; /* Distance from the left of the page */
+            background-color: #4CAF50; /* Green button color */
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none; /* Remove underline from links */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Transition effect for hover */
+        }
+
+        .home-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
     </style>
 </head>
 <body>
+    <a href="{% url 'home' %}" class="home-button">Go to Home</a>
     <div id="main">
         <div class="request-container">
             <h2>Add Blood Request</h2>

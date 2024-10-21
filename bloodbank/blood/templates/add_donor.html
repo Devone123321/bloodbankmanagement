@@ -1,3 +1,4 @@
+<a href="{% url 'home' %}" class="home-button">Go to Home</a>
 <h2 style="text-align: center; color: #000000;">Add a Donor</h2>
 <form method="POST" style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); max-width: 400px; margin: auto;">
     {% csrf_token %}
@@ -36,5 +37,21 @@
 
     button:hover {
         background-color: #dd0d0d;
+    }
+
+    .home-button {
+            position: absolute; /* Position relative to the nearest positioned ancestor */
+            top: 20px; /* Distance from the top of the page */
+            left: 20px; /* Distance from the left of the page */
+            background-color: #4CAF50; /* Green button color */
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none; /* Remove underline from links */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Transition effect for hover */
+        }
+
+    .home-button:hover {
+        background-color: #45a049; /* Darker green on hover */
     }
 </style>
